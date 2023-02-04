@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Random Password Generator</h2>
+        <br>
+        <input type="text" id="password" readonly>
+        <br><br><button class="btn1" id="button" onclick="genPassword()">Generate</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn2" id="button" onclick="copyPassword()">Copy</button>
+    </div>
+    <script>
+        let password = document.getElementById('password');
+        function genPassword(){
+            let chars = '0123456!@#$%&789abcdefg!@#$%&hijklmnopqrstuvwxyz!@#$%&AB!@#$%&CDEFGHIJKLMNOPQRSTUVWXYZ';
+            let passwordLenght = 12;
+            let password = '';
+            for(let i=0;i<=passwordLenght; i++){
+                let randomNumber = Math.floor(Math.random() * chars.length)
+                password += chars.substring(randomNumber,randomNumber + 1)
+            }
+            document.getElementById('password').value = password;
+        }
+            function copyPassword(){
+              let copyText =  document.getElementById('password');
+            copyText.select();
+            copyText.setSelectionRange(0,999);
+            document.execCommand('copy');
+            };
+
+    </script>
+    
+</body>
+</html>
